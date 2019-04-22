@@ -1,0 +1,47 @@
+{
+  "name": "hisketbug",
+  "version": "1.0.0",
+  "description": "testcafe study project",
+  "main": "index.js",
+  "dependencies": {
+    "yargs": "^12.0.1",
+    "expect-to-be-a-promise": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-testcafe": "^0.2.1",
+    "pre-commit": "^1.2.2",
+    "testcafe": "^1.1.1",
+    "testcafe-reporter-html": "^1.4.4"
+  },
+  "scripts": {
+    "lint": "$(npm bin)/eslint --fix **/*.js",
+    "audit": "npm audit",
+    "e2e:qa": "$(npm bin)/testcafe all src/fixtures/ --skip-js-errors --assertion-timeout 30000 -S -s target/screenshots --ENV=qa  -r spec,html:target/e2e-qa.html",
+    "e2e:qa:headless": "$(npm bin)/testcafe chrome:headless src/fixtures/ --skip-js-errors --assertion-timeout 30000 -S -s target/screenshots --ENV=qa -r spec,html:target/e2e-qa-headless.html"
+  },
+  "pre-commit": [
+    "lint",
+    "audit"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelaazevedo/hisketbug.git"
+  },
+  "keywords": [
+    "testcafe",
+    "docker",
+    "javascript"
+  ],
+  "author": "rafazzevedo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rafaelaazevedo/hisketbug/issues"
+  },
+  "homepage": "https://github.com/rafaelaazevedo/hisketbug#readme"
+}
